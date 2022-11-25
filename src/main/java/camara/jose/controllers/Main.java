@@ -1,4 +1,4 @@
-package camara.jose.sprintscolours;
+package camara.jose.controllers;
 
 public class Main {
 

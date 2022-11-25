@@ -3,8 +3,6 @@ module camara.jose.sprintscolours {
     requires javafx.fxml;
 
 
-    opens camara.jose.sprintscolours to javafx.fxml;
-    exports camara.jose.sprintscolours;
-    exports camara.jose.sprintscolours.controllers;
-    opens camara.jose.sprintscolours.controllers to javafx.fxml;
+    opens camara.jose.controllers to javafx.fxml;
+    exports camara.jose.controllers;
 }
