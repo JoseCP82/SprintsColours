@@ -1,12 +1,14 @@
 package camara.jose.controllers;
 
-
 import camara.jose.utils.message.ConfirmMessage;
 import camara.jose.utils.message.Message;
+import camara.jose.utils.utils.RandomNumber;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainController {
@@ -18,6 +20,28 @@ public class MainController {
     private BorderPane bdrPane;
     @FXML
     private Button btnClose;
+    @FXML
+    private AnchorPane paneRed1;
+    @FXML
+    private AnchorPane paneRed2;
+    @FXML
+    private AnchorPane paneRed3;
+    @FXML
+    private AnchorPane paneRed4;
+    @FXML
+    private AnchorPane paneRed5;
+    @FXML
+    private AnchorPane paneRed6;
+    @FXML
+    private AnchorPane paneRed7;
+    @FXML
+    private AnchorPane paneRed8;
+    @FXML
+    private AnchorPane paneRed9;
+    @FXML
+    private AnchorPane paneRed10;
+    @FXML
+    private VBox vboxRed;
 
     /**
      * Atributos de clase
@@ -25,6 +49,17 @@ public class MainController {
     private Stage stage;
     private double xOffSet=0;
     private double yOffSet=0;
+
+    @FXML
+    private void startStop() throws InterruptedException {
+        int number=0;
+        for(int i=0; i<10; i++){
+            number=RandomNumber.randomNumber(1,10);
+            System.out.println(number);
+            vboxRed.getChildren().get(i).setVisible(true);
+            Thread.sleep(number);
+        }
+    }
 
     /**
      * Minimiza la aplicación a la barra de tareas
