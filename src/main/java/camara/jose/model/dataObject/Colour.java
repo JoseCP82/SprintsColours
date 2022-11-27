@@ -32,7 +32,6 @@ public class Colour implements Runnable {
     /**
      * Getters and Setters
      */
-
     public String getName() {
         return name;
     }
