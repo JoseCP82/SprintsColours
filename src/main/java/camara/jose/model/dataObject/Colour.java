@@ -1,6 +1,6 @@
 package camara.jose.model.dataObject;
 
-public class Colour implements Runnable {
+public class Colour {
 
     /**
      * Atributos de clase
@@ -64,11 +64,4 @@ public class Colour implements Runnable {
         this.blue = blue;
     }
 
-    /**
-     * Inicia un hilo
-     */
-    @Override
-    public void run() {
-
-    }
 }
