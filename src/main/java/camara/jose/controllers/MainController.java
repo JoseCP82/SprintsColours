@@ -2,7 +2,7 @@ package camara.jose.controllers;
 
 import camara.jose.utils.message.ConfirmMessage;
 import camara.jose.utils.message.Message;
-import camara.jose.utils.utils.RandomNumber;
+import camara.jose.utils.utils.GenerateRgbValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -42,6 +42,8 @@ public class MainController {
     private AnchorPane paneRed10;
     @FXML
     private VBox vboxRed;
+    @FXML
+    private Button btnStartStop;
 
     /**
      * Atributos de clase
@@ -49,15 +51,30 @@ public class MainController {
     private Stage stage;
     private double xOffSet=0;
     private double yOffSet=0;
+    private int btnStatus=0;
 
     @FXML
     private void startStop() throws InterruptedException {
-        int number=0;
-        for(int i=0; i<10; i++){
-            number=RandomNumber.randomNumber(1,10);
-            System.out.println(number);
-            vboxRed.getChildren().get(i).setVisible(true);
-            Thread.sleep(number);
+        GenerateRgbValue redValue = null;
+        GenerateRgbValue greenValue = null;
+        GenerateRgbValue blueValue = null;
+        if(this.btnStatus==0){
+            if(redValue==null && greenValue==null && blueValue==null) {
+                redValue = new GenerateRgbValue();
+                greenValue = new GenerateRgbValue();
+                blueValue = new GenerateRgbValue();
+                new Thread(redValue).start();
+                new Thread(greenValue).start();
+                new Thread(blueValue).start();
+            }
+            this.btnStatus=1;
+            this.btnStartStop.setStyle("-fx-background-color:  #5499C7");
+           //this.btnStartStop.setStyle("-fx-cursor: hand");
+        }
+        else if (this.btnStatus==1){
+            this.btnStatus=0;
+            this.btnStartStop.setStyle("-fx-background-color:   #F1C40F");
+            //this.btnStartStop.setStyle("-fx-cursor: hand");
         }
     }
 
