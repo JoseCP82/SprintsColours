@@ -38,7 +38,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnRestart" layoutX="247.0" layoutY="40.0" mnemonicParsing="false" onAction="#restart" prefHeight="110.0" prefWidth="120.0" style="-fx-background-color: red; -fx-cursor: hand;" text="Restart" textFill="WHITE">
+            <Button fx:id="btnRestart" disable="true" layoutX="247.0" layoutY="40.0" mnemonicParsing="false" onAction="#restart" prefHeight="110.0" prefWidth="120.0" style="-fx-background-color: red; -fx-cursor: hand;" text="Restart" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

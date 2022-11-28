@@ -19,13 +19,16 @@ public class GenerateRgbValue implements Runnable {
 
     @Override
     public void run() {
-        while (!this.threadStatus.getSuspended() || value<=255){
+        while (value<=255 || !this.threadStatus.getSuspended()){
+            if(value>255){
+                this.threadStatus.setSuspended(true);
+            }
             try {
-                Thread.sleep(RandomNumber.randomNumber(1,5));
+                Thread.sleep(RandomNumber.randomNumber(1,100));
                 this.value++;
                 this.threadStatus.continueThread();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+               //e.printStackTrace();
                 System.exit(0);
             }
         }
