@@ -2,7 +2,6 @@ package camara.jose.connection;
 
 import camara.jose.log.Log;
 import camara.jose.utils.message.ErrorMessage;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
