@@ -117,7 +117,7 @@ public class MainController {
         ColourDAO cdao = new ColourDAO();
         String newColour = "c"+redValue.getValue()+greenValue.getValue()+blueValue.getValue();
         Colour c = new Colour(newColour, redValue.getValue(), greenValue.getValue(), blueValue.getValue());
-        if(cdao.getColour(newColour)!=null){
+        if(cdao.get(newColour)==null){
             if(new ColourDAO().insert(c)){
                 new InfoMessage("Color almacenado.").showMessage();
             } else {
@@ -150,8 +150,7 @@ public class MainController {
             threadGreen.interrupt();
             threadBlue.interrupt();
             this.stage = (Stage) this.btnClose.getScene().getWindow();
-            this.stage.close();
-        }
+            this.stage.close();        }
     }
 
     /**
