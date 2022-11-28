@@ -1,7 +1,7 @@
 package camara.jose.utils.utils;
 
 public class ThreadStatus {
-    private boolean suspended; //false -> hilo est� corriendo  // true -> hilo parado
+    private boolean suspended; //false -> hilo corriendo  // true -> hilo parado
 
     public boolean getSuspended() {
         return suspended;

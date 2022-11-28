@@ -52,6 +52,9 @@ public class MainController {
     private double xOffSet=0;
     private double yOffSet=0;
     private int btnStatus=0;
+    private Thread threadRed=null;
+    private Thread threadGreen=null;
+    private Thread threadBlue=null;
 
     @FXML
     private void startStop() throws InterruptedException {
@@ -63,19 +66,38 @@ public class MainController {
                 redValue = new GenerateRgbValue();
                 greenValue = new GenerateRgbValue();
                 blueValue = new GenerateRgbValue();
-                new Thread(redValue).start();
-                new Thread(greenValue).start();
-                new Thread(blueValue).start();
+                threadRed = new Thread(redValue);
+                threadGreen = new Thread(greenValue);
+                threadBlue = new Thread(blueValue);
+                threadRed.start();
+                threadGreen.start();
+                threadBlue.start();
             }
             this.btnStatus=1;
             this.btnStartStop.setStyle("-fx-background-color:  #5499C7");
-           //this.btnStartStop.setStyle("-fx-cursor: hand");
+            //this.btnStartStop.setStyle("-fx-cursor: hand");
+            redValue.getThreadStatus().setSuspended(false);
+            greenValue.getThreadStatus().setSuspended(false);
+            blueValue.getThreadStatus().setSuspended(false);
         }
         else if (this.btnStatus==1){
             this.btnStatus=0;
             this.btnStartStop.setStyle("-fx-background-color:   #F1C40F");
             //this.btnStartStop.setStyle("-fx-cursor: hand");
+            redValue.getThreadStatus().setSuspended(true);
+            greenValue.getThreadStatus().setSuspended(true);
+            blueValue.getThreadStatus().setSuspended(true);
         }
+    }
+
+    @FXML
+    private void restart(){
+        this.btnStatus=0;
+        this.btnStartStop.setStyle("-fx-background-color:  #27AE60");
+        //this.btnStartStop.setStyle("-fx-cursor: hand");
+        threadRed.interrupt();
+        threadGreen.interrupt();
+        threadBlue.interrupt();
     }
 
     /**
