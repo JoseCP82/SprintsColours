@@ -1,6 +1,10 @@
 package camara.jose.controllers;
 
+import camara.jose.model.DAO.ColourDAO;
+import camara.jose.model.dataObject.Colour;
 import camara.jose.utils.message.ConfirmMessage;
+import camara.jose.utils.message.ErrorMessage;
+import camara.jose.utils.message.InfoMessage;
 import camara.jose.utils.message.Message;
 import camara.jose.utils.utils.GenerateRgbValue;
 import javafx.fxml.FXML;
@@ -44,6 +48,8 @@ public class MainController {
     private VBox vboxRed;
     @FXML
     private Button btnStartStop;
+    @FXML
+    private Button btnRestart;
 
     /**
      * Atributos de clase
@@ -55,12 +61,13 @@ public class MainController {
     private Thread threadRed=null;
     private Thread threadGreen=null;
     private Thread threadBlue=null;
+    private GenerateRgbValue redValue = null;
+    private GenerateRgbValue greenValue = null;
+    private GenerateRgbValue blueValue = null;
 
     @FXML
     private void startStop() throws InterruptedException {
-        GenerateRgbValue redValue = null;
-        GenerateRgbValue greenValue = null;
-        GenerateRgbValue blueValue = null;
+        this.btnRestart.setDisable(false);
         if(this.btnStatus==0){
             if(redValue==null && greenValue==null && blueValue==null) {
                 redValue = new GenerateRgbValue();
@@ -74,7 +81,7 @@ public class MainController {
                 threadBlue.start();
             }
             this.btnStatus=1;
-            this.btnStartStop.setStyle("-fx-background-color:  #5499C7");
+            this.btnStartStop.setStyle("-fx-background-color: #5499C7");
             //this.btnStartStop.setStyle("-fx-cursor: hand");
             redValue.getThreadStatus().setSuspended(false);
             greenValue.getThreadStatus().setSuspended(false);
@@ -82,7 +89,7 @@ public class MainController {
         }
         else if (this.btnStatus==1){
             this.btnStatus=0;
-            this.btnStartStop.setStyle("-fx-background-color:   #F1C40F");
+            this.btnStartStop.setStyle("-fx-background-color: #F1C40F");
             //this.btnStartStop.setStyle("-fx-cursor: hand");
             redValue.getThreadStatus().setSuspended(true);
             greenValue.getThreadStatus().setSuspended(true);
@@ -92,12 +99,34 @@ public class MainController {
 
     @FXML
     private void restart(){
+        this.btnRestart.setDisable(true);
+        ConfirmMessage cm = new ConfirmMessage("¿Desea guardar la mezcla?");
+        cm.showMessage();
+        if(cm.getBt()==ButtonType.OK){
+            saveColour();
+        }
         this.btnStatus=0;
         this.btnStartStop.setStyle("-fx-background-color:  #27AE60");
         //this.btnStartStop.setStyle("-fx-cursor: hand");
         threadRed.interrupt();
         threadGreen.interrupt();
         threadBlue.interrupt();
+    }
+
+    private void saveColour(){
+        ColourDAO cdao = new ColourDAO();
+        String newColour = "c"+redValue.getValue()+greenValue.getValue()+blueValue.getValue();
+        Colour c = new Colour(newColour, redValue.getValue(), greenValue.getValue(), blueValue.getValue());
+        if(cdao.getColour(newColour)!=null){
+            if(new ColourDAO().insert(c)){
+                new InfoMessage("Color almacenado.").showMessage();
+            } else {
+                new ErrorMessage("No se pudo guardar el color").showMessage();
+            }
+        }
+        else {
+            new InfoMessage("Color existente en la base de datos.").showMessage();
+        }
     }
 
     /**
@@ -117,6 +146,9 @@ public class MainController {
         Message ms = new ConfirmMessage("¿Seguro que desea salir?");
         ms.showMessage();
         if(((ConfirmMessage) ms).getBt() == ButtonType.OK) {
+            threadRed.interrupt();
+            threadGreen.interrupt();
+            threadBlue.interrupt();
             this.stage = (Stage) this.btnClose.getScene().getWindow();
             this.stage.close();
         }
