@@ -8,12 +8,16 @@ import camara.jose.utils.message.InfoMessage;
 import camara.jose.utils.message.Message;
 import camara.jose.utils.utils.GenerateRgbValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import java.io.IOException;
 
 public class MainController {
 
@@ -115,7 +119,7 @@ public class MainController {
 
     private void saveColour(){
         ColourDAO cdao = new ColourDAO();
-        String newColour = "c"+redValue.getValue()+greenValue.getValue()+blueValue.getValue();
+        String newColour = "#"+redValue.getValue()+greenValue.getValue()+blueValue.getValue();
         Colour c = new Colour(newColour, redValue.getValue(), greenValue.getValue(), blueValue.getValue());
         if(cdao.get(newColour)==null){
             if(new ColourDAO().insert(c)){
@@ -127,6 +131,16 @@ public class MainController {
         else {
             new InfoMessage("Color existente en la base de datos.").showMessage();
         }
+    }
+
+    @FXML
+    private void loadColoursView() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("show-colours.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 480, 640);
+        Stage s = new Stage();
+        s.initStyle(StageStyle.UNDECORATED);
+        s.setScene(scene);
+        s.show();
     }
 
     /**
@@ -146,9 +160,12 @@ public class MainController {
         Message ms = new ConfirmMessage("¿Seguro que desea salir?");
         ms.showMessage();
         if(((ConfirmMessage) ms).getBt() == ButtonType.OK) {
-            threadRed.interrupt();
-            threadGreen.interrupt();
-            threadBlue.interrupt();
+            if(threadRed!=null) {
+                threadRed.interrupt();
+                threadGreen.interrupt();
+                threadBlue.interrupt();
+            }
+
             this.stage = (Stage) this.btnClose.getScene().getWindow();
             this.stage.close();        }
     }

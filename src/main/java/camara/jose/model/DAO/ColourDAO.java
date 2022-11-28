@@ -39,6 +39,7 @@ public class ColourDAO {
             ps.setInt(4, colour.getBlue());
             ps.executeUpdate();
             result=true;
+            ps.close();
         } catch (SQLException e) {
             Log.warningLogging(e+"");
         }
@@ -52,11 +53,15 @@ public class ColourDAO {
             ps.setString(1, name);
             ResultSet rs = ps.executeQuery();
             colour = new Colour();
-            rs.next();
-            colour.setName(rs.getString(1));
-            colour.setRed(rs.getInt(2));
-            colour.setGreen(rs.getInt(3));
-            colour.setBlue(rs.getInt(4));
+            if(rs!=null){
+                rs.next();
+                colour.setName(rs.getString(1));
+                colour.setRed(rs.getInt(2));
+                colour.setGreen(rs.getInt(3));
+                colour.setBlue(rs.getInt(4));
+            }
+            ps.close();
+            rs.close();
         } catch (SQLException e) {
             Log.warningLogging(e+"");
             colour=null;
@@ -77,6 +82,7 @@ public class ColourDAO {
                 aux.setBlue(rs.getInt(4));
                 colours.add(aux);
             }
+            rs.close();
         } catch (SQLException e) {
             Log.warningLogging(e+"");
         }
