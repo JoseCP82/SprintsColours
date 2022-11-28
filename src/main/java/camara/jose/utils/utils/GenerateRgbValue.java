@@ -1,5 +1,7 @@
 package camara.jose.utils.utils;
 
+import camara.jose.log.Log;
+
 public class GenerateRgbValue implements Runnable {
 
     private ThreadStatus threadStatus = new ThreadStatus();
@@ -28,7 +30,7 @@ public class GenerateRgbValue implements Runnable {
                 this.value++;
                 this.threadStatus.continueThread();
             } catch (InterruptedException e) {
-               //e.printStackTrace();
+                Log.warningLogging(e+"");
                 System.exit(0);
             }
         }
