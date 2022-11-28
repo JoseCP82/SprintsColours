@@ -51,6 +51,10 @@ public class MainController {
     @FXML
     private VBox vboxRed;
     @FXML
+    private VBox vboxGreen;
+    @FXML
+    private VBox vboxBlue;
+    @FXML
     private Button btnStartStop;
     @FXML
     private Button btnRestart;
@@ -74,9 +78,9 @@ public class MainController {
         this.btnRestart.setDisable(false);
         if(this.btnStatus==0){
             if(redValue==null && greenValue==null && blueValue==null) {
-                redValue = new GenerateRgbValue();
-                greenValue = new GenerateRgbValue();
-                blueValue = new GenerateRgbValue();
+                redValue = new GenerateRgbValue(vboxRed);
+                greenValue = new GenerateRgbValue(vboxGreen);
+                blueValue = new GenerateRgbValue(vboxBlue);
                 threadRed = new Thread(redValue);
                 threadGreen = new Thread(greenValue);
                 threadBlue = new Thread(blueValue);
