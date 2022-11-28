@@ -64,4 +64,8 @@ public class Colour {
         this.blue = blue;
     }
 
+    @Override
+    public String toString() {
+        return "name= " + name + ", red=" + red +", green=" + green +", blue=" + blue;
+    }
 }
