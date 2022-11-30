@@ -38,7 +38,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnRestart" disable="true" layoutX="247.0" layoutY="40.0" mnemonicParsing="false" onAction="#restart" prefHeight="110.0" prefWidth="120.0" style="-fx-background-color: red; -fx-cursor: hand;" text="Stop" textFill="WHITE">
+            <Button fx:id="btnRestart" disable="true" layoutX="247.0" layoutY="40.0" mnemonicParsing="false" onAction="#restart" prefHeight="110.0" prefWidth="120.0" style="-fx-background-color: red; -fx-cursor: hand;" text="Reset" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -52,52 +52,52 @@
          <children>
             <VBox fx:id="vboxRed" layoutX="59.0" layoutY="35.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: red;">
                <children>
-                  <AnchorPane fx:id="paneRed10" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed10" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="4.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed9" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed9" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed8" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed8" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed7" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed7" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed6" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed6" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed5" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed5" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed4" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed4" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed3" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed3" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed2" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed2" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneRed1" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;">
+                  <AnchorPane fx:id="paneRed1" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
                         <Insets bottom="4.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
@@ -106,52 +106,52 @@
             </VBox>
             <VBox fx:id="vboxGreen" layoutX="190.0" layoutY="35.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: green;">
                <children>
-                  <AnchorPane fx:id="paneGreen10" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen10" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="4.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen9" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen9" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen8" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen8" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen7" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen7" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen6" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen6" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen5" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen5" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen4" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen4" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen3" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen3" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen2" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen2" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneGreen1" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;">
+                  <AnchorPane fx:id="paneGreen1" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
                         <Insets bottom="4.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
@@ -160,52 +160,52 @@
             </VBox>
             <VBox fx:id="vboxBlue" layoutX="323.0" layoutY="35.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: blue;">
                <children>
-                  <AnchorPane fx:id="paneBlue10" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue10" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="4.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue9" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue9" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue8" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue8" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue7" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue7" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue6" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue6" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue5" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue5" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue4" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue4" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue3" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue3" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue2" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue2" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
                   </AnchorPane>
-                  <AnchorPane fx:id="paneBlue1" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;">
+                  <AnchorPane fx:id="paneBlue1" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
                         <Insets bottom="4.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin>
