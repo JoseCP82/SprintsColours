@@ -6,18 +6,19 @@ import camara.jose.utils.message.ConfirmMessage;
 import camara.jose.utils.message.ErrorMessage;
 import camara.jose.utils.message.InfoMessage;
 import camara.jose.utils.message.Message;
+import camara.jose.utils.utils.ConvertColourToString;
 import camara.jose.utils.utils.GenerateRgbValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
+import static java.lang.System.exit;
 
 public class MainController {
 
@@ -28,26 +29,6 @@ public class MainController {
     private BorderPane bdrPane;
     @FXML
     private Button btnClose;
-    @FXML
-    private AnchorPane paneRed1;
-    @FXML
-    private AnchorPane paneRed2;
-    @FXML
-    private AnchorPane paneRed3;
-    @FXML
-    private AnchorPane paneRed4;
-    @FXML
-    private AnchorPane paneRed5;
-    @FXML
-    private AnchorPane paneRed6;
-    @FXML
-    private AnchorPane paneRed7;
-    @FXML
-    private AnchorPane paneRed8;
-    @FXML
-    private AnchorPane paneRed9;
-    @FXML
-    private AnchorPane paneRed10;
     @FXML
     private VBox vboxRed;
     @FXML
@@ -78,9 +59,9 @@ public class MainController {
         this.btnRestart.setDisable(false);
         if(this.btnStatus==0){
             if(redValue==null && greenValue==null && blueValue==null) {
-                redValue = new GenerateRgbValue(vboxRed);
-                greenValue = new GenerateRgbValue(vboxGreen);
-                blueValue = new GenerateRgbValue(vboxBlue);
+                redValue = new GenerateRgbValue(vboxRed,btnStartStop);
+                greenValue = new GenerateRgbValue(vboxGreen,btnStartStop);
+                blueValue = new GenerateRgbValue(vboxBlue,btnStartStop);
                 threadRed = new Thread(redValue);
                 threadGreen = new Thread(greenValue);
                 threadBlue = new Thread(blueValue);
@@ -107,6 +88,9 @@ public class MainController {
 
     @FXML
     private void restart(){
+        redValue.getThreadStatus().setSuspended(true);
+        greenValue.getThreadStatus().setSuspended(true);
+        blueValue.getThreadStatus().setSuspended(true);
         this.btnRestart.setDisable(true);
         ConfirmMessage cm = new ConfirmMessage("¿Desea guardar la mezcla?");
         cm.showMessage();
@@ -114,16 +98,25 @@ public class MainController {
             saveColour();
         }
         this.btnStatus=0;
+        this.btnStartStop.setDisable(false);
         this.btnStartStop.setStyle("-fx-background-color:  #27AE60");
         //this.btnStartStop.setStyle("-fx-cursor: hand");
         threadRed.interrupt();
         threadGreen.interrupt();
         threadBlue.interrupt();
+        for (int i=0; i<10; i++) {
+            this.vboxRed.getChildren().get(i).setVisible(false);
+            this.vboxGreen.getChildren().get(i).setVisible(false);
+            this.vboxBlue.getChildren().get(i).setVisible(false);
+        }
+        redValue=null;
+        greenValue=null;
+        blueValue=null;
     }
 
     private void saveColour(){
         ColourDAO cdao = new ColourDAO();
-        String newColour = "#"+redValue.getValue()+greenValue.getValue()+blueValue.getValue();
+        String newColour = ConvertColourToString.convert(redValue.getValue(), greenValue.getValue(), blueValue.getValue());
         Colour c = new Colour(newColour, redValue.getValue(), greenValue.getValue(), blueValue.getValue());
         if(cdao.get(newColour)==null){
             if(new ColourDAO().insert(c)){
@@ -169,9 +162,10 @@ public class MainController {
                 threadGreen.interrupt();
                 threadBlue.interrupt();
             }
-
             this.stage = (Stage) this.btnClose.getScene().getWindow();
-            this.stage.close();        }
+            this.stage.close();
+            exit(0);
+        }
     }
 
     /**
