@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="100.0" prefWidth="480.0" style="-fx-border-color: black; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="camara.jose.controllers.ColourItemController">
+   <children>
+      <Label fx:id="lblName" layoutX="70.0" layoutY="36.0" text="Colour">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Pane fx:id="paneColour" layoutX="273.0" layoutY="15.0" prefHeight="70.0" prefWidth="120.0" style="-fx-border-color: black; -fx-border-radius: 100; -fx-border-width: 3;">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding></Pane>
+   </children>
+</AnchorPane>
