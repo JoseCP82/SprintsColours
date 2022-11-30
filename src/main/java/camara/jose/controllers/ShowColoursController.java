@@ -1,8 +1,10 @@
 package camara.jose.controllers;
 
+import camara.jose.log.Log;
 import camara.jose.model.DAO.ColourDAO;
 import camara.jose.model.dataObject.Colour;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -11,6 +13,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -34,16 +38,26 @@ public class ShowColoursController implements Initializable {
             int row = 1;
             GridPane gp = new GridPane();
             gp.setPrefSize(480, 385);
+            AnchorPane pane;
             for (Colour c : colours) {
-                AnchorPane pane = new AnchorPane();
-                pane.setPrefSize(480,386);
-                pane.setStyle("-fx-background-color: "+c.getName());
-                pane.setPadding(new Insets(40, 50, 50, 50));
-                if (columns == 1) {
-                    columns = 0;
-                    ++row;
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    fxmlLoader.setLocation(App.class.getResource("colour-item.fxml"));
+                    pane = fxmlLoader.load();
+                    ColourItemController cic = fxmlLoader.getController();
+                    cic.setItem(c);
+                    if (columns == 1) {
+                        columns = 0;
+                        ++row;
+                    }
+                    gp.add(pane, ++columns, row);
+                } catch (IOException e) {
+                    Log.warningLogging(e+"");
                 }
-                gp.add(pane, ++columns, row);
+                //AnchorPane pane = new AnchorPane();
+                //pane.setPrefSize(480,386);
+                //pane.setStyle("-fx-background-color: "+c.getName());
+                //pane.setPadding(new Insets(40, 50, 50, 50));
             }
             scrollPane.setContent(gp);
         }else {
