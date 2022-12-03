@@ -1,7 +1,10 @@
 package camara.jose.utils.utils;
 
 import camara.jose.log.Log;
+import camara.jose.utils.message.InfoMessage;
+import javafx.application.Platform;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 
@@ -12,12 +15,18 @@ public class GenerateRgbValue implements Runnable {
     private VBox vbox;
     private Button btnStartStop;
     private GenerateRgbValue[] generateRgbValue;
+    private Chronometer chronometer;
+    private String name;
+    private Label lblWin;
 
-    public GenerateRgbValue(VBox vbox, Button btnStartStop) {
+    public GenerateRgbValue(VBox vbox, Button btnStartStop, Chronometer chronometer, String name, Label lblWin) {
         this.vbox=vbox;
         this.btnStartStop=btnStartStop;
         this.threadStatus.setSuspended(false);
         this.value=0;
+        this.chronometer=chronometer;
+        this.name=name;
+        this.lblWin=lblWin;
     }
 
     public int getValue() { return this.value; }
@@ -45,6 +54,11 @@ public class GenerateRgbValue implements Runnable {
         int sleepTime=0;
         while (!this.threadStatus.getSuspended()){
             if(value==255){
+                Platform.runLater(() ->{
+                    lblWin.setStyle("-fx-text-fill: "+name.toLowerCase());
+                    lblWin.setText(name+" colour win the sprint!!!");
+                });
+                this.chronometer.getThreadStatus().setSuspended(true);
                 this.btnStartStop.setDisable(true);
                 for(GenerateRgbValue rgb : generateRgbValue){
                     rgb.threadStatus.setSuspended(true);

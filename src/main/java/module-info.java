@@ -3,6 +3,7 @@ module camara.jose.sprintscolours {
     requires javafx.fxml;
     requires java.sql;
     requires java.xml.bind;
+    requires java.desktop;
 
     opens camara.jose.connection to java.xml.bind;
     exports camara.jose.connection;

@@ -32,7 +32,7 @@ public class Chronometer extends  Thread {
         while (!this.threadStatus.getSuspended()){
             try {
                 Thread.sleep(1000);
-                calculateMixingTime(seconds++);
+                calculateMixingTime(++seconds);
                 Platform.runLater(() ->{
                     this.lblTime.setText(mixingTime);
                 } );
