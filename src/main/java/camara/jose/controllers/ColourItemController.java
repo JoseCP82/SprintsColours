@@ -7,11 +7,18 @@ import javafx.scene.layout.Pane;
 
 public class ColourItemController {
 
+    /**
+     * Atributos bindeados con java fx
+     */
     @FXML
     private Label lblName;
     @FXML
     private Pane paneColour;
 
+    /**
+     * Setea los atributos bindeados
+     * @param colour Color a setear
+     */
     public void setItem(Colour colour) {
         String colourName= colour.getName();;
         this.lblName.setText(colourName);

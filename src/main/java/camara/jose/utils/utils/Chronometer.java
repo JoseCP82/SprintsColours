@@ -6,15 +6,25 @@ import javafx.scene.control.Label;
 
 public class Chronometer extends  Thread {
 
+    /**
+     * Atributos de clase
+     */
     private ThreadStatus threadStatus = new ThreadStatus();
     private String mixingTime;
     private Label lblTime;
 
+    /**
+     * Constructor parametrizado
+     * @param lblTime Label con marca de tiempo
+     */
     public Chronometer(Label lblTime) {
         this.lblTime=lblTime;
         this.threadStatus.setSuspended(false);
     }
 
+    /**
+     * Getters y Setters
+     */
     public ThreadStatus getThreadStatus() {
         return this.threadStatus;
     }
@@ -27,6 +37,9 @@ public class Chronometer extends  Thread {
         return mixingTime;
     }
 
+    /**
+     * Metodo run del hilo
+     */
     public void run() {
         int seconds=0;
         while (!this.threadStatus.getSuspended()){
@@ -43,6 +56,10 @@ public class Chronometer extends  Thread {
         }
     }
 
+    /**
+     * Metodo que calcula horas, minutos y segundos y setea el atributo mixingTime
+     * @param seconds Segundos usados para calcular el tiempo
+     */
     private void calculateMixingTime(int seconds){
         int hours = seconds / 3600;
         seconds %= 3600;
