@@ -6,6 +6,7 @@ import camara.jose.utils.message.ConfirmMessage;
 import camara.jose.utils.message.ErrorMessage;
 import camara.jose.utils.message.InfoMessage;
 import camara.jose.utils.message.Message;
+import camara.jose.utils.utils.Chronometer;
 import camara.jose.utils.utils.ConvertColourToString;
 import camara.jose.utils.utils.GenerateRgbValue;
 import javafx.fxml.FXML;
@@ -13,6 +14,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -39,6 +41,8 @@ public class MainController {
     private Button btnStartStop;
     @FXML
     private Button btnRestart;
+    @FXML
+    private Label lblTime;
 
     /**
      * Atributos de clase
@@ -53,12 +57,17 @@ public class MainController {
     private GenerateRgbValue redValue = null;
     private GenerateRgbValue greenValue = null;
     private GenerateRgbValue blueValue = null;
+    private Chronometer chronometer;
 
     @FXML
     private void startStop() throws InterruptedException {
         this.btnRestart.setDisable(false);
         if(this.btnStatus==0){
             if(redValue==null && greenValue==null && blueValue==null) {
+
+                chronometer = new Chronometer(lblTime);
+                chronometer.start();
+
 
                 GenerateRgbValue[] rgb = new GenerateRgbValue[3];
 
@@ -88,6 +97,8 @@ public class MainController {
             redValue.getThreadStatus().setSuspended(false);
             greenValue.getThreadStatus().setSuspended(false);
             blueValue.getThreadStatus().setSuspended(false);
+            chronometer.getThreadStatus().setSuspended(false);
+
         }
         else if (this.btnStatus==1){
             this.btnStatus=0;
@@ -96,11 +107,13 @@ public class MainController {
             redValue.getThreadStatus().setSuspended(true);
             greenValue.getThreadStatus().setSuspended(true);
             blueValue.getThreadStatus().setSuspended(true);
+            chronometer.getThreadStatus().setSuspended(true);
         }
     }
 
     @FXML
     private void restart(){
+        chronometer.getThreadStatus().setSuspended(true);
         redValue.getThreadStatus().setSuspended(true);
         greenValue.getThreadStatus().setSuspended(true);
         blueValue.getThreadStatus().setSuspended(true);
@@ -114,6 +127,8 @@ public class MainController {
         this.btnStartStop.setDisable(false);
         this.btnStartStop.setStyle("-fx-background-color:  #27AE60");
         //this.btnStartStop.setStyle("-fx-cursor: hand");
+        chronometer.interrupt();
+        lblTime.setText("00:00:00");
         threadRed.interrupt();
         threadGreen.interrupt();
         threadBlue.interrupt();

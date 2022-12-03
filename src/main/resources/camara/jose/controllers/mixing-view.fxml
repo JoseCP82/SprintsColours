@@ -50,7 +50,7 @@
    <center>
       <AnchorPane fx:id="anchorCenter" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="vboxRed" layoutX="59.0" layoutY="35.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: red;">
+            <VBox fx:id="vboxRed" layoutX="58.0" layoutY="21.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: red;">
                <children>
                   <AnchorPane fx:id="paneRed10" prefHeight="10.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
@@ -179,7 +179,7 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <VBox fx:id="vboxGreen" layoutX="190.0" layoutY="35.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: green;">
+            <VBox fx:id="vboxGreen" layoutX="189.0" layoutY="21.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: green;">
                <children>
                   <AnchorPane fx:id="paneGreen10" prefHeight="10.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
@@ -308,7 +308,7 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <VBox fx:id="vboxBlue" layoutX="323.0" layoutY="35.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: blue;">
+            <VBox fx:id="vboxBlue" layoutX="322.0" layoutY="21.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: blue;">
                <children>
                   <AnchorPane fx:id="paneBlue10" prefHeight="10.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
@@ -437,6 +437,15 @@
                   </AnchorPane>
                </children>
             </VBox>
+            <Label fx:id="lblTime" layoutX="372.0" layoutY="356.0" text="00:00:00">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="278.0" layoutY="356.0" text="Mixing Time:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
          </children>
          <BorderPane.margin>
             <Insets />
