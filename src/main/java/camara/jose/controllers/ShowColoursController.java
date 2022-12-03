@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.io.IOException;
@@ -20,14 +19,26 @@ import java.util.ResourceBundle;
 
 public class ShowColoursController implements Initializable {
 
+    /**
+     * Atributos bindeados con javafx
+     */
     @FXML
     private Button btnClose;
     @FXML
     private ScrollPane scrollPane;
     @FXML
     private Label lblColours;
+
+    /**
+     * Atributos de clase
+     */
     private Stage stage;
 
+    /**
+     * Metodo que inicializa la clase
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<Colour> colours = new ColourDAO().getAll();
@@ -59,6 +70,9 @@ public class ShowColoursController implements Initializable {
         }
     }
 
+    /**
+     * Cierra la aplicacion
+     */
     @FXML
     private void closeApp() {
         this.stage = (Stage) this.btnClose.getScene().getWindow();

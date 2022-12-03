@@ -35,6 +35,9 @@ public class Log {
         logger.log(Level.WARNING,message);
     }
 
+    /**
+     * Guarda en un archivo los mensajes Log
+     */
     private static void saveLog() {
         try {
             InputStream configFile= Log.class.getResourceAsStream("logging.properties");

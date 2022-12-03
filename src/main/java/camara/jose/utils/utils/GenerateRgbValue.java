@@ -1,7 +1,6 @@
 package camara.jose.utils.utils;
 
 import camara.jose.log.Log;
-import camara.jose.utils.message.InfoMessage;
 import javafx.application.Platform;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,6 +9,9 @@ import javafx.scene.layout.VBox;
 
 public class GenerateRgbValue implements Runnable {
 
+    /**
+     * Atributos de clase
+     */
     private ThreadStatus threadStatus = new ThreadStatus();
     private int value;
     private VBox vbox;
@@ -19,6 +21,14 @@ public class GenerateRgbValue implements Runnable {
     private String name;
     private Label lblWin;
 
+    /**
+     * Constructor parametrizado
+     * @param vbox Elemento Vbox de la interfaz grafica
+     * @param btnStartStop Elemento Button de la interfaz grafica
+     * @param chronometer Objeto de tipo cronometro
+     * @param name Nombre del hilo
+     * @param lblWin Elemento Label de la interfaz grafica
+     */
     public GenerateRgbValue(VBox vbox, Button btnStartStop, Chronometer chronometer, String name, Label lblWin) {
         this.vbox=vbox;
         this.btnStartStop=btnStartStop;
@@ -29,6 +39,9 @@ public class GenerateRgbValue implements Runnable {
         this.lblWin=lblWin;
     }
 
+    /**
+     * Getters y Setters
+     */
     public int getValue() { return this.value; }
 
     public ThreadStatus getThreadStatus() {
@@ -47,6 +60,9 @@ public class GenerateRgbValue implements Runnable {
         this.generateRgbValue = generateRgbValue;
     }
 
+    /**
+     * Metodo run del hilo
+     */
     @Override
     public void run() {
         int vBoxIndex = this.vbox.getChildren().size()-1;
@@ -85,6 +101,9 @@ public class GenerateRgbValue implements Runnable {
         }
     }
 
+    /**
+     * Restablece los atributos a su valor por defecto
+     */
     private void reset() {
         for (int i=0; i<25; i++) {
             this.vbox.getChildren().get(i).setVisible(false);

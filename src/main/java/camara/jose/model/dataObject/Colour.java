@@ -64,6 +64,10 @@ public class Colour {
         this.blue = blue;
     }
 
+    /**
+     * Metodo toString
+     * @return
+     */
     @Override
     public String toString() {
         return "name= " + name + ", red=" + red +", green=" + green +", blue=" + blue;

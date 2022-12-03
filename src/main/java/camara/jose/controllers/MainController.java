@@ -61,6 +61,10 @@ public class MainController {
     private GenerateRgbValue blueValue = null;
     private Chronometer chronometer;
 
+    /**
+     * Inicia o para la carrera
+     * @throws InterruptedException
+     */
     @FXML
     private void startStop() throws InterruptedException {
         this.btnRestart.setDisable(false);
@@ -112,6 +116,9 @@ public class MainController {
         }
     }
 
+    /**
+     * Para la carrera y restablece los parametros de la app
+     */
     @FXML
     private void restart(){
         chronometer.getThreadStatus().setSuspended(true);
@@ -144,6 +151,9 @@ public class MainController {
         blueValue=null;
     }
 
+    /**
+     * Obtiene los datos de la interfaz grafica y llama al metodo que guarda la informacion
+     */
     private void saveColour(){
         ColourDAO cdao = new ColourDAO();
         String newColour = ConvertColourToString.convert(redValue.getValue(), greenValue.getValue(), blueValue.getValue());
@@ -160,6 +170,10 @@ public class MainController {
         }
     }
 
+    /**
+     * Carga la vista grafica donde se muestran los colores almacenados
+     * @throws IOException
+     */
     @FXML
     private void loadColoursView() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("show-colours.fxml"));
@@ -170,6 +184,10 @@ public class MainController {
         s.show();
     }
 
+    /**
+     * Carga la vista grafica About
+     * @throws IOException
+     */
     @FXML
     private void loadAboutView() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("show-about.fxml"));

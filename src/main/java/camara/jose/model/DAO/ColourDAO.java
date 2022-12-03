@@ -3,7 +3,6 @@ package camara.jose.model.DAO;
 import camara.jose.connection.DBConnection;
 import camara.jose.log.Log;
 import camara.jose.model.dataObject.Colour;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,11 @@ public class ColourDAO {
         this.conn = DBConnection.getConnect();
     }
 
+    /**
+     * Guarda en la base de datos un objeto color
+     * @param colour Color a almacenar
+     * @return True o false si se realizo o no
+     */
     public boolean insert(Colour colour){
         boolean result=false;
         try {
@@ -46,6 +50,11 @@ public class ColourDAO {
         return result;
     }
 
+    /**
+     * Obtiene de la base de datos un color dado por su nombre
+     * @param name Nombre del color a buscar
+     * @return Color obtenido o null si no existe
+     */
     public Colour get(String name) {
         Colour colour = null;
         try {
@@ -69,6 +78,10 @@ public class ColourDAO {
         return colour;
     }
 
+    /**
+     * Obtiene todos los colores existentes en la base de datos
+     * @return List con colores o null si no existe ninguno
+     */
     public List<Colour> getAll() {
         List<Colour> colours = new ArrayList<>();
         try {
