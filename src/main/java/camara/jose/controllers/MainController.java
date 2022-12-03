@@ -59,12 +59,25 @@ public class MainController {
         this.btnRestart.setDisable(false);
         if(this.btnStatus==0){
             if(redValue==null && greenValue==null && blueValue==null) {
+
+                GenerateRgbValue[] rgb = new GenerateRgbValue[3];
+
                 redValue = new GenerateRgbValue(vboxRed,btnStartStop);
                 greenValue = new GenerateRgbValue(vboxGreen,btnStartStop);
                 blueValue = new GenerateRgbValue(vboxBlue,btnStartStop);
+
+                rgb[0]=redValue;
+                rgb[1]=greenValue;
+                rgb[2]=blueValue;
+
+                redValue.setGenerateRgbValue(rgb);
+                blueValue.setGenerateRgbValue(rgb);
+                greenValue.setGenerateRgbValue(rgb);
+
                 threadRed = new Thread(redValue);
                 threadGreen = new Thread(greenValue);
                 threadBlue = new Thread(blueValue);
+
                 threadRed.start();
                 threadGreen.start();
                 threadBlue.start();
@@ -104,7 +117,7 @@ public class MainController {
         threadRed.interrupt();
         threadGreen.interrupt();
         threadBlue.interrupt();
-        for (int i=0; i<10; i++) {
+        for (int i=0; i<25; i++) {
             this.vboxRed.getChildren().get(i).setVisible(false);
             this.vboxGreen.getChildren().get(i).setVisible(false);
             this.vboxBlue.getChildren().get(i).setVisible(false);
