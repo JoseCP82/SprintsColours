@@ -6,14 +6,13 @@ import camara.jose.model.dataObject.Colour;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -27,7 +26,6 @@ public class ShowColoursController implements Initializable {
     private ScrollPane scrollPane;
     @FXML
     private Label lblColours;
-
     private Stage stage;
 
     @Override
@@ -54,10 +52,6 @@ public class ShowColoursController implements Initializable {
                 } catch (IOException e) {
                     Log.warningLogging(e+"");
                 }
-                //AnchorPane pane = new AnchorPane();
-                //pane.setPrefSize(480,386);
-                //pane.setStyle("-fx-background-color: "+c.getName());
-                //pane.setPadding(new Insets(40, 50, 50, 50));
             }
             scrollPane.setContent(gp);
         }else {

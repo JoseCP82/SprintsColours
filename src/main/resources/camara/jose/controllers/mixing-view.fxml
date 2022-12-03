@@ -38,19 +38,19 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="btnRestart" disable="true" layoutX="247.0" layoutY="40.0" mnemonicParsing="false" onAction="#restart" prefHeight="110.0" prefWidth="120.0" style="-fx-background-color: red; -fx-cursor: hand;" text="Reset" textFill="WHITE">
+            <Button fx:id="btnRestart" disable="true" layoutX="247.0" layoutY="40.0" mnemonicParsing="false" onAction="#restart" prefHeight="110.0" prefWidth="120.0" style="-fx-background-color: red; -fx-cursor: hand;" text="Save/Reset" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
             <Button fx:id="btnColours" layoutX="14.0" layoutY="57.0" mnemonicParsing="false" onAction="#loadColoursView" prefHeight="75.0" prefWidth="75.0" style="-fx-background-radius: 100; -fx-cursor: hand;" text="Colours" />
-            <Button layoutX="390.0" layoutY="57.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="75.0" style="-fx-background-radius: 100; -fx-cursor: hand;" text="About" />
+            <Button layoutX="390.0" layoutY="57.0" mnemonicParsing="false" onAction="#loadAboutView" prefHeight="75.0" prefWidth="75.0" style="-fx-background-radius: 100; -fx-cursor: hand;" text="About" />
          </children></AnchorPane>
    </bottom>
    <center>
       <AnchorPane fx:id="anchorCenter" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox fx:id="vboxRed" layoutX="58.0" layoutY="21.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: red;">
+            <VBox fx:id="vboxRed" layoutX="58.0" layoutY="45.0" prefHeight="310.0" prefWidth="100.0" style="-fx-border-color: red;">
                <children>
                   <AnchorPane fx:id="paneRed10" prefHeight="10.0" prefWidth="100.0" style="-fx-background-color: red;" visible="false">
                      <VBox.margin>
@@ -179,7 +179,7 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <VBox fx:id="vboxGreen" layoutX="189.0" layoutY="21.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: green;">
+            <VBox fx:id="vboxGreen" layoutX="189.0" layoutY="45.0" prefHeight="310.0" prefWidth="100.0" style="-fx-border-color: green;">
                <children>
                   <AnchorPane fx:id="paneGreen10" prefHeight="10.0" prefWidth="100.0" style="-fx-background-color: #27AE60;" visible="false">
                      <VBox.margin>
@@ -308,7 +308,7 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <VBox fx:id="vboxBlue" layoutX="322.0" layoutY="21.0" prefHeight="320.0" prefWidth="100.0" style="-fx-border-color: blue;">
+            <VBox fx:id="vboxBlue" layoutX="322.0" layoutY="45.0" prefHeight="310.0" prefWidth="100.0" style="-fx-border-color: blue;">
                <children>
                   <AnchorPane fx:id="paneBlue10" prefHeight="10.0" prefWidth="100.0" style="-fx-background-color: #5499C7;" visible="false">
                      <VBox.margin>
@@ -437,13 +437,18 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <Label fx:id="lblTime" layoutX="372.0" layoutY="356.0" text="00:00:00">
+            <Label fx:id="lblTime" layoutX="370.0" layoutY="366.0" text="00:00:00">
                <font>
                   <Font size="14.0" />
                </font></Label>
-            <Label layoutX="278.0" layoutY="356.0" text="Mixing Time:">
+            <Label layoutX="276.0" layoutY="366.0" text="Mixing Time:">
                <font>
                   <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblWin" alignment="CENTER" contentDisplay="CENTER" layoutX="78.0" layoutY="5.0" prefHeight="30.0" prefWidth="324.0" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
                </font>
             </Label>
          </children>

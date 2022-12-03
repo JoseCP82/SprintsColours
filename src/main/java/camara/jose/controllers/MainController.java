@@ -43,6 +43,8 @@ public class MainController {
     private Button btnRestart;
     @FXML
     private Label lblTime;
+    @FXML
+    private Label lblWin;
 
     /**
      * Atributos de clase
@@ -68,12 +70,11 @@ public class MainController {
                 chronometer = new Chronometer(lblTime);
                 chronometer.start();
 
-
                 GenerateRgbValue[] rgb = new GenerateRgbValue[3];
 
-                redValue = new GenerateRgbValue(vboxRed,btnStartStop);
-                greenValue = new GenerateRgbValue(vboxGreen,btnStartStop);
-                blueValue = new GenerateRgbValue(vboxBlue,btnStartStop);
+                redValue = new GenerateRgbValue(vboxRed,btnStartStop, chronometer,"Red",lblWin);
+                greenValue = new GenerateRgbValue(vboxGreen,btnStartStop,chronometer,"Green",lblWin);
+                blueValue = new GenerateRgbValue(vboxBlue,btnStartStop,chronometer,"Blue",lblWin);
 
                 rgb[0]=redValue;
                 rgb[1]=greenValue;
@@ -129,6 +130,7 @@ public class MainController {
         //this.btnStartStop.setStyle("-fx-cursor: hand");
         chronometer.interrupt();
         lblTime.setText("00:00:00");
+        lblWin.setText("");
         threadRed.interrupt();
         threadGreen.interrupt();
         threadBlue.interrupt();
@@ -161,6 +163,16 @@ public class MainController {
     @FXML
     private void loadColoursView() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("show-colours.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 480, 640);
+        Stage s = new Stage();
+        s.initStyle(StageStyle.UNDECORATED);
+        s.setScene(scene);
+        s.show();
+    }
+
+    @FXML
+    private void loadAboutView() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("show-about.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 480, 640);
         Stage s = new Stage();
         s.initStyle(StageStyle.UNDECORATED);
