@@ -219,6 +219,7 @@ public class MainController {
                 threadRed.interrupt();
                 threadGreen.interrupt();
                 threadBlue.interrupt();
+                chronometer.interrupt();
             }
             this.stage = (Stage) this.btnClose.getScene().getWindow();
             this.stage.close();
